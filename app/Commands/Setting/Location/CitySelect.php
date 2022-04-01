@@ -14,16 +14,13 @@ class CitySelect extends BaseCommand
         if ($this->update->getMessage()) {
             $district = District::where('title', $this->update->getMessage()->getText())->first();
         } else {
-            $districtId = json_decode($this->update->getCallbackQuery()->getData(), true)['d_id'];
+            $districtId = $this->update->getCallbackQueryByKey('d_id');
             $district = District::find($districtId);
         }
 
-        $offset = 0;
-        if ($this->update->getCallbackQuery()) {
-            $offset = json_decode($this->update->getCallbackQuery()->getData(), true)['off'];
-        }
-
+        $offset = $this->update->getCallbackQueryByKey('off') ?: 0;
         $limit = $district->cities->skip($offset)->count() > 30 ? 30 : $district->cities->skip($offset)->count();
+
         $keyboard = [];
         $buttons = [];
         foreach ($district->cities->skip($offset)->take($limit) as $key => $city) {
@@ -68,7 +65,7 @@ class CitySelect extends BaseCommand
                 $this->update->getCallbackQuery()->getMessage()->getMessageId(),
                 $this->text['select_city'],
                 'html', true,
-                new InlineKeyboardMarkup($keyboard)
+                new InlineKeyboardMarkup($keyboard),
             );
         } else {
             $this->getBot()->sendMessageWithKeyboard(

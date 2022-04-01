@@ -29,9 +29,12 @@ class CityName extends BaseCommand
 
             $this->getBot()->sendMessageWithKeyboard(
                 $this->user->chat_id,
-                $this->text['request_to_write_city'], new ReplyKeyboardMarkup([
-                [$this->text['back']]
-            ], false, true));
+                $this->text['request_to_write_city'],
+                new ReplyKeyboardMarkup([
+                    [$this->text['back']]
+                ], false, true,
+                )
+            );
         }
     }
 

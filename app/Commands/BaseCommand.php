@@ -3,8 +3,8 @@
 namespace App\Commands;
 
 use App\Services\Status\UserStatus;
-use TelegramBot\Api\Types\Update;
 use App\Models\User;
+use App\Utils\Update;
 
 abstract class BaseCommand extends BasicMessages
 {

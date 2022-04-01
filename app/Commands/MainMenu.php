@@ -20,7 +20,7 @@ class MainMenu extends BaseCommand
             new ReplyKeyboardMarkup([
                 [$this->text['forecast']],
                 [$this->text['current_weather']],
-                [$this->text['feedback'], $this->text['change_city']]
+                [$this->text['feedback'], $this->text['change_city']],
             ], false, true),
         );
     }

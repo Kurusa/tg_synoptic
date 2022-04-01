@@ -13,8 +13,8 @@ class LocationDone extends BaseCommand
     function processCommand($param = null)
     {
         if ($this->update->getCallbackQuery()) {
-            $districtId = json_decode($this->update->getCallbackQuery()->getData(), true)['d_id'];
-            $cityId = json_decode($this->update->getCallbackQuery()->getData(), true)['id'];
+            $districtId = $this->update->getCallbackQueryByKey('d_id');
+            $cityId = $this->update->getCallbackQueryByKey('id');
 
             try {
                 $this->user->cities()->create([

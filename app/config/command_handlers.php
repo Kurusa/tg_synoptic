@@ -8,7 +8,7 @@ use App\Commands\Setting\{CityMenu,
     Location\LocationDone,
     Location\SelectLocationType,
     Location\TgLocation,
-    ViewCityList};
+    UserCityList};
 use App\Commands\Weather\{
     GenerateImage,
     SelectWeatherCity,
@@ -41,7 +41,7 @@ return [
         'back'            => Back::class,
         'feedback'        => Feedback::class,
         'change_city'     => CityMenu::class,
-        'my_cities'       => ViewCityList::class,
+        'my_cities'       => UserCityList::class,
         'add_city'        => SelectLocationType::class,
 
         'current_weather' => SelectWeatherCity::class,
@@ -61,7 +61,7 @@ return [
         UserStatus::SETTINGS_CITY_NAME            => CityName::class,
         UserStatus::DISTRICT_SELECT               => DistrictSelect::class,
         UserStatus::FEEDBACK                      => Feedback::class,
-        UserStatus::USER_CITY_LIST                => ViewCityList::class,
+        UserStatus::USER_CITY_LIST                => UserCityList::class,
         UserStatus::FORECAST_CITY_SELECT          => SelectWeatherCity::class,
         UserStatus::CURRENT_CITY_SELECT           => SelectWeatherCity::class,
         UserStatus::CITY_MENU                     => CityMenu::class,

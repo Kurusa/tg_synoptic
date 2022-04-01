@@ -5,8 +5,8 @@ namespace App;
 use App\Commands\InlineQueryHandler;
 use App\Commands\MainMenu;
 use App\Models\User;
+use App\Utils\Update;
 use TelegramBot\Api\Client;
-use TelegramBot\Api\Types\Update;
 
 class WebhookController
 {
@@ -20,7 +20,7 @@ class WebhookController
             $config = include(__DIR__ . '/config/command_handlers.php');
 
             if ($update->getCallbackQuery()) {
-                $action = \json_decode($update->getCallbackQuery()->getData(), true)['a'];
+                $action = $update->getCallbackQueryByKey('a');
 
                 if (isset($config['callback_commands'][$action])) {
                     $handlerClassName = $config['callback_commands'][$action];

@@ -7,7 +7,7 @@ use App\Models\City;
 use App\Services\Status\UserStatus;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
-class ViewCityList extends BaseCommand
+class UserCityList extends BaseCommand
 {
 
     function processCommand($param = null)

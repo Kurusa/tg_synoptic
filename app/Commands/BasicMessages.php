@@ -4,7 +4,7 @@ namespace App\Commands;
 
 use App\Utils\Api;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
-use TelegramBot\Api\Types\Update;
+use App\Utils\Update;
 
 class BasicMessages
 {
