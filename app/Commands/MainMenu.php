@@ -2,25 +2,14 @@
 
 namespace App\Commands;
 
-use App\Commands\Weather\WeatherLess;
 use App\Services\Status\UserStatus;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup;
 
 class MainMenu extends BaseCommand
 {
 
-    function processCommand($text = false)
+    function processCommand($param = false)
     {
-        // HANDLING INLINE QUERY
-        if ($this->user->status == UserStatus::DONE) {
-            $city_name = explode(', ', $this->update->getMessage()->getText())[0];
-            $city_data = \App\Models\City::where('title', $city_name)->first();
-            if ($city_data) {
-                $this->triggerCommand(WeatherLess::class, $city_data->id);
-                exit();
-            }
-        }
-
         $this->user->update([
             'status' => UserStatus::MAIN_MENU,
         ]);

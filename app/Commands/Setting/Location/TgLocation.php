@@ -13,7 +13,6 @@ class TgLocation extends BaseCommand
     {
         if ($this->user->status == UserStatus::SETTINGS_LOCATION_WAITING) {
             $buttons = \App\Services\LocationSearch\TgLocation::getSearchResult($this->update->getMessage()->getLocation());
-
             if ($buttons) {
                 $this->user->update([
                     'status' => UserStatus::SETTINGS_LOCATION_SELECTING,

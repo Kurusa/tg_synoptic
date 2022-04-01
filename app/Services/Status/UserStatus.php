@@ -17,12 +17,12 @@ final class UserStatus extends Enum {
     const SETTINGS_LOCATION_SELECTING   = 'selecting location in settings';
     const SETTINGS_CITY_NAME            = 'selecting city by name in settings';
 
-    const USER_CITY_LIST                = 'selecting city from list';
+    const CITY_MENU                     = 'in city menu';
+    const USER_CITY_LIST                = 'selecting existing city from list';
 
     const DISTRICT_SELECT               = 'selecting district';
     const FEEDBACK                      = 'writing feedback';
     const FORECAST_CITY_SELECT          = 'selecting city for forecast';
     const CURRENT_CITY_SELECT           = 'selecting current city';
-    const CITY_MENU                     = 'in city menu';
 
 }

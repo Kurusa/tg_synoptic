@@ -4,7 +4,6 @@ namespace App;
 
 use App\Commands\InlineQueryHandler;
 use App\Commands\MainMenu;
-use App\Commands\Setting\Location\TgLocation;
 use App\Models\User;
 use TelegramBot\Api\Client;
 use TelegramBot\Api\Types\Update;
